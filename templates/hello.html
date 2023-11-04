@@ -11,7 +11,11 @@
     <h1>Hello, Japan!</h1>
     <ul>
         {% for bullet in bullets %}
-        <li>{{ bullet }}</li>
+        <!-- 3の倍数でない場合のみ表示 -->
+        <!-- loop.indexはjinja2で用意されている変数 -->
+            {% if loop.index % 3 != 0 %}
+                <li>{{ bullet, loop.index }}</li>
+            {% endif %}
         {% endfor%}
     </ul>
 </body>
